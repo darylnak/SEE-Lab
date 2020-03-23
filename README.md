@@ -1,5 +1,5 @@
 # EEG Analysis
-This project aims to identify seizures in EEGs using the "Physionet" 
+This project aims to utilizie machine learning to identify seizures in an EEG. The model is trained on the "Physionet" 
 database collected by the Children's Hospital of Boston.
 
 ## Status
