@@ -4,9 +4,8 @@ database collected by the Children's Hospital of Boston.
 
 ## Status
 
-##### *3/23/20 - 12:58am*
-
-The current implementaion to calculate MMD is extremely slow (> 4700 hours to execute). A fix is unknown at this time.
+##### *3/24/20 - 02:08am*
+Re-wrote `mmd()` with `pairwise_kernels` from SciKitLearn. The kernel is crashing on `seiz_Kxx = pairwise_kernels(seizures, seizures, metric='rbf')`. A fix is being investigated.
 
 ## In-Progress
 
