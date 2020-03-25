@@ -4,8 +4,8 @@ database collected by the Children's Hospital of Boston.
 
 ## Status
 
-##### *3/24/20 - 02:08am*
-Re-wrote `mmd()` with `pairwise_kernels` from SciKitLearn. The kernel is crashing on `seiz_Kxx = pairwise_kernels(seizures, seizures, metric='rbf')`. A fix is being investigated.
+##### *3/25/20 - 04:29am*
+Further optimized MMD function. Computing all pairwise dot products for `non_seizures` takes ~2.2 hours, down from > 4700 hours. 
 
 ## In-Progress
 
