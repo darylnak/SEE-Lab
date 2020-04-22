@@ -5,7 +5,7 @@ database collected by the Children's Hospital of Boston.
 ## Status
 
 ##### *4/21/20 - 05:14pm*
-New code is currently being implemented into the ccurrent codebase for the MMD calculation. Additionally, more features will be added to the features vector. Specifically, variance, skew, and kurtosis will be added, as well as any other features that come up during further research.
+New code is currently being implemented into the current codebase for the MMD calculation. Additionally, more features will be added to the features vector. Specifically, variance, skew, and kurtosis will be added, as well as any other features that come up during further research.
 
 ## In-Progress
   * Integrate new code into current codebase
