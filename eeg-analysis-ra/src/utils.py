@@ -45,3 +45,13 @@ def downSample(data_train, label_train):
         print(label_train_down)
     
     return data_train_down, label_train_down
+
+def hd_kernel(data):
+    """
+    HD encoding kernel
+    
+    Input: data - the data to be encoded
+    Returns: The encoded data
+    """
+    
+    
