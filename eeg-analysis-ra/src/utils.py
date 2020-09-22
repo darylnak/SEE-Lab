@@ -1,4 +1,4 @@
-`import numpy as np
+import numpy as np
 
 def downSample(data_train, label_train):
 
@@ -53,12 +53,17 @@ def hd_kernel(data):
     Input: data - the data to be encoded
     Returns: The encoded data
     """
-    phi = np.random.normal(size=(d, data.shape(1)))
-    phi /= np.linalg.norm(phi, axis=1)
+    d = 5000
+
+    phi = np.random.normal(size=(d, np.shape(data)[1]))
+    phi /= np.linalg.norm(phi, axis=1)[:, None] # make d x 1 for division
     b = np.random.uniform(data.min(), data.max(), size=(d, 1)) # constant
-    H = np.sign(phi.dot(data.T).T + b)
+    H = np.sign(phi.dot(data.T).T + b.T) 
+    H = np.sign(np.matmul(phi, data.T) + b) 
     H = H.T.dot(H)
     
+    return H
+
 def mmd(data, kernel):
     """
     Compute the MMD
