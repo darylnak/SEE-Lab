@@ -59,7 +59,6 @@ def hd_kernel(data):
     phi = np.random.normal(size=(d, np.shape(data)[1]))
     phi /= np.linalg.norm(phi, axis=1)[:, None] # make d x 1 for division
     b = np.random.uniform(data.min(), data.max(), size=(d, 1)) # constant
-    H = np.sign(phi.dot(data.T).T + b.T) 
     H = np.sign(np.matmul(phi, data.T) + b) 
     H = H.T.dot(H)
     
