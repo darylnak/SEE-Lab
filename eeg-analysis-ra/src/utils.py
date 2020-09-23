@@ -1,4 +1,5 @@
 import numpy as np
+from tqdm import tqdm
 
 def downSample(data_train, label_train):
 
@@ -64,8 +65,30 @@ def hd_kernel(data):
     
     return H
 
-def mmd(data, kernel):
+def MMD(data, kernel_enc):
     """
     Compute the MMD
     """
+    mmd = []
     
+    for N in tqdm(range(1, data.shape[0])):
+            M = data.shape[0] - N
+            Kxx = kernel_enc[:N,:N].sum()
+            Kxy = kernel_enc[:N,N:].sum()
+            Kyy = kernel_enc[N:,N:].sum()
+            mmd.append(np.sqrt(
+                ((1/float(N*N))*Kxx) + 
+                ((1/float(M*M))*Kyy) -
+                ((2/float(N*M))*Kxy)
+            ))
+            
+    mmd = np.array(mmd)
+    ws = []
+    mmd_corr = np.zeros(mmd.size)
+            
+    for ix in range(1,mmd_corr.size):
+        w = ((data.shape[0]-1) / float(ix*(N-ix))) # because N is still in scope from the for-loop above (Python things...)
+        ws.append(w)
+        mmd_corr[ix] = mmd[ix] - w*mmd.max()
+    
+    return mmd, mmd_corr
