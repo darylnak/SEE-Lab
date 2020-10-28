@@ -54,15 +54,18 @@ def hd_kernel(data):
     Input: data - the data to be encoded
     Returns: The encoded data
     """
-    d = 5000
+#     d = 10000
 
-    phi = np.random.normal(size=(d, np.shape(data)[1]))
-    phi /= np.linalg.norm(phi, axis=1)[:, None] # make d x 1 for division
-    b = np.random.uniform(data.min(), data.max(), size=(d, 1)) # constant
-    H = np.sign(np.matmul(phi, data.T) + b) 
-    H = H.T.dot(H)
+#     phi = np.random.normal(size=(d, np.shape(data)[1]))
+#     phi /= np.linalg.norm(phi, axis=1)[:, None] # make d x 1 for division
+#     print(phi)
+#     b = np.random.uniform(data.min(), data.max(), size=(d, 1)) # constant
+#     H = np.sign(np.matmul(phi, data.T) + b) 
+#     H = H.T.dot(H)
+
     
-    return H
+    
+    return data@data.T
 
 def MMD(data, kernel_enc):
     """
